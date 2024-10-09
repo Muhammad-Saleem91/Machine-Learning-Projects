@@ -4,7 +4,12 @@ import pandas as pd
 import re
 import pickle
 import nltk
-nltk.download('stopwords')
+# Ensure stopwords are downloaded
+try:
+    nltk.data.find('corpora/stopwords')
+except LookupError:
+    nltk.download('stopwords')
+    
 from nltk.corpus import stopwords
 from nltk.stem.porter import PorterStemmer
 from sklearn.feature_extraction.text import TfidfVectorizer
